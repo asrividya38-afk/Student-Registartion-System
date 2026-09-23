@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration System</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+header{
+    background:#0077cc;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+nav{
+    background:#005fa3;
+    display:flex;
+    justify-content:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+}
+
+nav a:hover{
+    background:#004080;
+}
+
+.container{
+    width:90%;
+    max-width:700px;
+    margin:30px auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#0077cc;
+}
+
+input,select{
+    width:100%;
+    padding:7px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#0077cc;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#005fa3;
+}
+
+table{
+    width:100%;
+    margin-top:20px;
+    border-collapse:collapse;
+}
+
+table,th,td{
+    border:1px solid gray;
+}
+
+th{
+    background:#0077cc;
+    color:white;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+footer{
+    text-align:center;
+    background:#0077cc;
+    color:white;
+    padding:15px;
+    margin-top:30px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>Student Registration System</h1>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Register</a>
+<a href="#">Students</a>
+<a href="#">Contact</a>
+</nav>
+
+<div class="container">
+
+<h2>Student Registration Form</h2>
+
+<form id="studentForm">
+
+<input type="text" id="name" placeholder="Student Name" required>
+
+<input type="number" id="roll" placeholder="Roll Number" required>
+
+<input type="email" id="email" placeholder="Email" required>
+
+<input type="tel" id="phone" placeholder="Phone Number" required>
+
+<select id="course" required>
+<option value="">Select Course</option>
+<option>BCA</option>
+<option>B.Sc</option>
+<option>B.Com</option>
+<option>B.Tech</option>
+<option>MCA</option>
+</select>
+
+<input type="text" id="address" placeholder="Address" required>
+
+<button type="submit">Register Student</button>
+
+</form>
+
+<table id="studentTable">
+
+<thead>
+
+<tr>
+<th>Student Name</th>
+<th>Roll No</th>
+<th>Email</th>
+<th>Course</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</div>
+
+<footer>
+<p>2026 Student Registration System</p>
+</footer>
+
+<script>
+
+let form=document.getElementById("studentForm");
+let table=document.getElementById("studentTable").getElementsByTagName("tbody")[0];
+
+form.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let roll=document.getElementById("roll").value;
+let email=document.getElementById("email").value;
+let course=document.getElementById("course").value;
+
+let row=table.insertRow();
+
+row.insertCell(0).innerHTML=name;
+row.insertCell(1).innerHTML=roll;
+row.insertCell(2).innerHTML=email;
+row.insertCell(3).innerHTML=course;
+
+alert("Student Registered Successfully!");
+
+form.reset();
+
+});
+
+</script>
+
+</body>
+</html>
